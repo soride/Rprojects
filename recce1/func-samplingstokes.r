@@ -1,4 +1,4 @@
-### Functions for simulating  sampling in a 200 km x 200 km landscape
+### Functions for simulating  sampling in a 65 km x 65 km landscape
 
 library(spatstat)
 ## Generate random fecal sample coordinates
@@ -36,6 +36,9 @@ random_clusterT<-function (k,r,mu,fecal_prev)   #Thomas
     indata
 }
 
+                                        #dada<-data.frame(random_clusterT(k=5,r=(2.5/65),mu=100000,fecal_prev=0.1))
+
+                                        #plot(dada[,c(2,3)],pch=19,cex=.01)
                                         #data<-random_clusterT(k,r,mu,fecal_prev)
                                         #plot(0,0,xlim=c(0,200),ylim=c(0,200),type="n")  #
                                         #points(data[,c(2,3)],col=data[,4]+1,pch=20)
@@ -56,10 +59,11 @@ random_clusterM<-function (k,r,mu,fecal_prev)  #Matern
     colnames(indata)<-c("id","px","py","pf","fecal_prev")
     indata
 }
-                                        #data<-random_clusterM(k,r,mu,fecal_prev)
-                                        #plot(0,0,xlim=c(0,200),ylim=c(0,200),type="n")
+                                        #data<-random_clusterM(k=3,r=(20/65),mu=167000,fecal_prev=0.1)
+                                        #plot(data[,c(2,3)],pch=19,cex=.011)
+                                        #plot(0,0,xlim=c(0,65),ylim=c(0,65),type="n")
                                         #ironX100<-move_ironX(ironX,x=100,y=100)
-                                        #points(data[,c(2,3)],col=data[,4]+1,pch=20)
+
 
 
 psampleDistances<-function (patterndf,sampledf)

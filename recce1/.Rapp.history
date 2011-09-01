@@ -1,0 +1,1150 @@
+nu
+mu[1]
+mu
+mu[1]
+mu[2]
+lC=0.066667             #rate at which children enter adult age class#
+mu=c(0.0, 0.0166667)  #death rate in the child and adult classes#
+S0=c(0.1, 0.1)           #initial proportion susceptible child and adult#
+I0=c(0.0001, 0.0001)    #initial proportion infected child and adult#
+ND=MaxTime=100          #number of days#
+n0=mu[2]/(lC+mu[2])     #proportion in the childhood group#
+n1=1.0-n0               #proportion in the adult group#
+n=matrix(c(n0,n1),nrow=1)#
+nu=(lC+mu[2])*n[1]      #birth rate
+nu
+n[1]
+mu[2]
+n
+n[1]
+(1.8^2 + 2.56)/1.8
+?boxplot
+install.packages("Hmisc")
+?panel.bpplot
+require(Hmisc)
+?panel.bpplot
+set.seed(13)#
+x <- rnorm(1000)#
+g <- sample(1:6, 1000, replace=TRUE)#
+x[g==1][1:20] <- rnorm(20)+3   # contaminate 20 x's for group 1#
+#
+#
+# default trellis box plot#
+require(lattice)#
+bwplot(g ~ x)
+bwplot(g ~ x, panel=panel.bpplot, probs=c(.025,seq(.25,.49,by=.01)))
+z<-boxplot()
+bplot95 <- boxplot(...)
+blot95 <- boxplot
+blot95
+blot95 <-  function (x, coef = NULL, do.conf = TRUE, do.out = #
+TRUE) #
+{ #
+  nna <- !is.na(x) #
+  n <- sum(nna) #
+  stats <- quantile(x, c(.05,.25,.5,.75,.95), na.rm = TRUE) #
+  iqr <- diff(stats[c(2, 4)]) #
+  out <- x < stats[1] | x > stats[5] #
+  conf <- if (do.conf) #
+    stats[3] + c(-1.58, 1.58) * diff(stats[c(2, 4)])/sqrt(n) #
+  list(stats = stats, n = n, conf = conf, out = x[out & nna]) #
+}
+blot95
+blot(egord~kvalues,data=hir)
+blot95(egord~kvalues,data=hir)
+x=c(0,4,15, 1, 6, 3, 20, 5, 8, 1, 3)
+pannel.bpplot(x)
+panel.bpplot(x)
+panel.bpplot(x,1)
+panel.bpplot(x,2)
+panel.bpplot(x,rep(1,11))
+quartz()
+panel.bpplot(x,rep(1,11))
+x <- rnorm(10)
+g <- sample(1:2, 10, replace=TRUE)
+x
+g
+bwplot(g~x)
+bwplot()
+bwplot
+panel.bpplot(g~x)
+panel.bpplot(g,x)
+panel.bpplot
+bwplot(g ~ x, panel=panel.bpplot, probs=seq(.01,.25,by=.01))
+quartz()
+bwplot(g ~ x, panel=panel.bpplot, probs=seq(.01,.25,by=.01))
+quartz()
+bwplot(g ~ x, panel=panel.bpplot, probs=seq(.01,.49,by=.01), datadensity=TRUE)
+bwplot(g ~ x, panel=panel.bpplot, probs=0.25, datadensity=TRUE)
+bwplot(g ~ x, panel=panel.bpplot, probs=0.25, qref=c(0.05))
+bwplot(g ~ x, panel=panel.bpplot, probs=c(0.25,0.75), qref=c(0.05))
+bwplot(g ~ x, panel=panel.bpplot, probs=c(0.25,0.75), qref=c(0.05,0.95))
+bwplot(g ~ x, panel=panel.bpplot, probs=c(0.25,0.75), qref=c(0.05,0.95), means=TRUE)
+quartz()
+bwplot(g ~ x, panel=panel.bpplot, probs=c(0.25,0.75), qref=c(0.05,0.95), means=TRUE)
+boxplot(g,x)
+bwplot(g ~ x, panel=panel.bpplot, probs=c(.1,.2,.3,.4), qref=c(.5,.2,.8))
+bwplot(g ~ x, panel=panel.bpplot, nout=.05, scat1d.opts=list(frac=.01))
+bwplot(g ~ x, panel=panel.bpplot, probs=c(0.25,0.75), qref=c(0.05,0.95), means=TRUE, nout=0.05)
+box95<-boxplot
+box95.stats <-  function (x, coef = NULL, do.conf = TRUE, do.out = #
+TRUE) #
+{ #
+  nna <- !is.na(x) #
+  n <- sum(nna) #
+  stats <- quantile(x, c(.05,.25,.5,.75,.95), na.rm = TRUE) #
+  iqr <- diff(stats[c(2, 4)]) #
+  out <- x < stats[1] | x > stats[5] #
+  conf <- if (do.conf) #
+    stats[3] + c(-1.58, 1.58) * diff(stats[c(2, 4)])/sqrt(n) #
+  list(stats = stats, n = n, conf = conf, out = x[out & nna]) #
+}
+fixInNamespace(box95.default, "graphics")
+fix(box95.default)
+box95(x,y)
+box95(x,g)
+quartz()
+box95(x,g)
+quartz()
+boxplot(x,g)
+box95.default
+fix(box95.default)
+boxplot.default
+box95<-boxplot.default
+box95
+box95<-function (x, ..., range = 1.5, width = NULL, varwidth = FALSE, #
+    notch = FALSE, outline = TRUE, names, plot = TRUE, border = par("fg"), #
+    col = NULL, log = "", pars = list(boxwex = 0.8, staplewex = 0.5, #
+        outwex = 0.5), horizontal = FALSE, add = FALSE, at = NULL) #
+{#
+	myboxplot.stats <-  function (x, coef = NULL, do.conf = TRUE, do.out = #
+TRUE) #
+{ #
+  nna <- !is.na(x) #
+  n <- sum(nna) #
+  stats <- quantile(x, c(.05,.25,.5,.75,.95), na.rm = TRUE) #
+  iqr <- diff(stats[c(2, 4)]) #
+  out <- x < stats[1] | x > stats[5] #
+  conf <- if (do.conf) #
+    stats[3] + c(-1.58, 1.58) * diff(stats[c(2, 4)])/sqrt(n) #
+  list(stats = stats, n = n, conf = conf, out = x[out & nna]) #
+}#
+    args <- list(x, ...)#
+    namedargs <- if (!is.null(attributes(args)$names)) #
+        attributes(args)$names != ""#
+    else rep(FALSE, length.out = length(args))#
+    groups <- if (is.list(x)) #
+        x#
+    else args[!namedargs]#
+    if (0L == (n <- length(groups))) #
+        stop("invalid first argument")#
+    if (length(class(groups))) #
+        groups <- unclass(groups)#
+    if (!missing(names)) #
+        attr(groups, "names") <- names#
+    else {#
+        if (is.null(attr(groups, "names"))) #
+            attr(groups, "names") <- 1L:n#
+        names <- attr(groups, "names")#
+    }#
+    cls <- sapply(groups, function(x) class(x)[1L])#
+    cl <- if (all(cls == cls[1L])) #
+        cls[1L]#
+    else NULL#
+    for (i in 1L:n) groups[i] <- list(myboxplot.stats(unclass(groups[[i]]), #
+        range))#
+    stats <- matrix(0, nrow = 5L, ncol = n)#
+    conf <- matrix(0, nrow = 2L, ncol = n)#
+    ng <- out <- group <- numeric(0L)#
+    ct <- 1#
+    for (i in groups) {#
+        stats[, ct] <- i$stats#
+        conf[, ct] <- i$conf#
+        ng <- c(ng, i$n)#
+        if ((lo <- length(i$out))) {#
+            out <- c(out, i$out)#
+            group <- c(group, rep.int(ct, lo))#
+        }#
+        ct <- ct + 1#
+    }#
+    if (length(cl) && cl != "numeric") #
+        oldClass(stats) <- cl#
+    z <- list(stats = stats, n = ng, conf = conf, out = out, #
+        group = group, names = names)#
+    if (plot) {#
+        if (is.null(pars$boxfill) && is.null(args$boxfill)) #
+            pars$boxfill <- col#
+        do.call("bxp", c(list(z, notch = notch, width = width, #
+            varwidth = varwidth, log = log, border = border, #
+            pars = pars, outline = outline, horizontal = horizontal, #
+            add = add, at = at), args[namedargs]))#
+        invisible(z)#
+    }#
+    else z#
+}#
+<environment: namespace:graphics>
+myboxplot.stats <-  function (x, coef = NULL, do.conf = TRUE, do.out = #
+TRUE) #
+{ #
+  nna <- !is.na(x) #
+  n <- sum(nna) #
+  stats <- quantile(x, c(.05,.25,.5,.75,.95), na.rm = TRUE) #
+  iqr <- diff(stats[c(2, 4)]) #
+  out <- x < stats[1] | x > stats[5] #
+  conf <- if (do.conf) #
+    stats[3] + c(-1.58, 1.58) * diff(stats[c(2, 4)])/sqrt(n) #
+  list(stats = stats, n = n, conf = conf, out = x[out & nna]) #
+}
+myboxplot.stats <-  function (x, coef = NULL, do.conf = TRUE, do.out = #
+TRUE) #
+{ #
+  nna <- !is.na(x) #
+  n <- sum(nna) #
+  stats <- quantile(x, c(.05,.25,.5,.75,.95), na.rm = TRUE) #
+  iqr <- diff(stats[c(2, 4)]) #
+  out <- x < stats[1] | x > stats[5] #
+  conf <- if (do.conf) #
+    stats[3] + c(-1.58, 1.58) * diff(stats[c(2, 4)])/sqrt(n) #
+  list(stats = stats, n = n, conf = conf, out = x[out & nna]) #
+}
+box95<-function (x, ..., range = 1.5, width = NULL, varwidth = FALSE, #
+    notch = FALSE, outline = TRUE, names, plot = TRUE, border = par("fg"), #
+    col = NULL, log = "", pars = list(boxwex = 0.8, staplewex = 0.5, #
+        outwex = 0.5), horizontal = FALSE, add = FALSE, at = NULL) #
+{#
+    args <- list(x, ...)#
+    namedargs <- if (!is.null(attributes(args)$names)) #
+        attributes(args)$names != ""#
+    else rep(FALSE, length.out = length(args))#
+    groups <- if (is.list(x)) #
+        x#
+    else args[!namedargs]#
+    if (0L == (n <- length(groups))) #
+        stop("invalid first argument")#
+    if (length(class(groups))) #
+        groups <- unclass(groups)#
+    if (!missing(names)) #
+        attr(groups, "names") <- names#
+    else {#
+        if (is.null(attr(groups, "names"))) #
+            attr(groups, "names") <- 1L:n#
+        names <- attr(groups, "names")#
+    }#
+    cls <- sapply(groups, function(x) class(x)[1L])#
+    cl <- if (all(cls == cls[1L])) #
+        cls[1L]#
+    else NULL#
+    for (i in 1L:n) groups[i] <- list(myboxplot.stats(unclass(groups[[i]]), #
+        range))#
+    stats <- matrix(0, nrow = 5L, ncol = n)#
+    conf <- matrix(0, nrow = 2L, ncol = n)#
+    ng <- out <- group <- numeric(0L)#
+    ct <- 1#
+    for (i in groups) {#
+        stats[, ct] <- i$stats#
+        conf[, ct] <- i$conf#
+        ng <- c(ng, i$n)#
+        if ((lo <- length(i$out))) {#
+            out <- c(out, i$out)#
+            group <- c(group, rep.int(ct, lo))#
+        }#
+        ct <- ct + 1#
+    }#
+    if (length(cl) && cl != "numeric") #
+        oldClass(stats) <- cl#
+    z <- list(stats = stats, n = ng, conf = conf, out = out, #
+        group = group, names = names)#
+    if (plot) {#
+        if (is.null(pars$boxfill) && is.null(args$boxfill)) #
+            pars$boxfill <- col#
+        do.call("bxp", c(list(z, notch = notch, width = width, #
+            varwidth = varwidth, log = log, border = border, #
+            pars = pars, outline = outline, horizontal = horizontal, #
+            add = add, at = at), args[namedargs]))#
+        invisible(z)#
+    }#
+    else z#
+}#
+<environment: namespace:graphics>
+box95(x,g)
+quartz()
+box95(x,g)
+boxplot(x,g)
+box95
+?boxplot
+?matplot
+?legend
+?abline
+?gam
+??gam
+set.seed(123)#
+temp<- data.frame(matrix(rnorm(12*8), ncol=12))#
+pos<- c(1:6,9:14)#
+lplot(temp)#
+#
+# Now see some labels#
+lplot(temp, labels=paste("Y",1:12), tcex=.5)#
+#
+# Create a data set with two factors (age and gender)#
+race<-data.frame(c(1.02,.99,1.11,1.30,1.09,1.26,1.21,1.19,1.30,1.45,1.34,1.49),#
+                 c('M','M','M','M','M','M','F','F','F','F','F','F'),#
+                 c('under 50','under 50','under 50','over 50','over 50','over 50',#
+                   'under 50','under 50','under 50','over 50','over 50','over 50'))#
+names(race)<-c("time","gender","age")#
+#
+# Plot the data to see the factors#
+lplot(race$gender, race$time, race$age)
+install.packages("Rlab")
+set.seed(123)#
+temp<- data.frame(matrix(rnorm(12*8), ncol=12))#
+pos<- c(1:6,9:14)#
+lplot(temp)#
+#
+# Now see some labels#
+lplot(temp, labels=paste("Y",1:12), tcex=.5)#
+#
+# Create a data set with two factors (age and gender)#
+race<-data.frame(c(1.02,.99,1.11,1.30,1.09,1.26,1.21,1.19,1.30,1.45,1.34,1.49),#
+                 c('M','M','M','M','M','M','F','F','F','F','F','F'),#
+                 c('under 50','under 50','under 50','over 50','over 50','over 50',#
+                   'under 50','under 50','under 50','over 50','over 50','over 50'))#
+names(race)<-c("time","gender","age")#
+#
+# Plot the data to see the factors#
+lplot(race$gender, race$time, race$age)
+library(Rlab)
+set.seed(123)#
+temp<- data.frame(matrix(rnorm(12*8), ncol=12))#
+pos<- c(1:6,9:14)#
+lplot(temp)#
+#
+# Now see some labels#
+lplot(temp, labels=paste("Y",1:12), tcex=.5)#
+#
+# Create a data set with two factors (age and gender)#
+race<-data.frame(c(1.02,.99,1.11,1.30,1.09,1.26,1.21,1.19,1.30,1.45,1.34,1.49),#
+                 c('M','M','M','M','M','M','F','F','F','F','F','F'),#
+                 c('under 50','under 50','under 50','over 50','over 50','over 50',#
+                   'under 50','under 50','under 50','over 50','over 50','over 50'))#
+names(race)<-c("time","gender","age")#
+#
+# Plot the data to see the factors#
+lplot(race$gender, race$time, race$age)
+x <- runif(50)#
+y <- runif(50)#
+plot(x,y)#
+textxy(x,y,1:50,m=c(mean(x),mean(y)))
+(1664*2+146)/13349
+(1664*2+146)
+?matrix
+load("/Users/solson/Rprojects/recce1/gd7/k100.RData")#
+hk100<-k100
+hk100[[15]]
+setwd("/Users/solson/Rprojects/recce1/")#
+source("func-ironX0.r")#
+source("func-movereplicateIronX.r")#
+source("func-samplingstokes.r")#
+source("func-pointdistanceALL.r")#
+source("func-rotmove.r")#
+source("func-rotatepts.r")#
+source("func-distancesim.r")#
+source("func-simIXRstokes.r")#
+source("func-simIXTstokes.r")#
+source("func-mixsim.r")#
+source("func-sims4.r")#
+source("func-init.r")
+area=65*65  ## area of landscape#
+pilespday=5  ## piles per day per gorilla#
+piled=1 ##days#
+poopconversion=area*pilespday*piled#
+#
+## Set up runs#
+nruns=15#
+ntransects=16#
+#
+##Upper density at 7 (147875 piles)#
+n=7*poopconversion#
+#
+##Random or k=100#
+sampledf <-data.frame(random_basic(n,fecal_prev=0.1))#
+sampledf40<-data.frame(random_clusterT(k=5,r=(40/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf35<-data.frame(random_clusterT(k=5,r=(35/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf30<-data.frame(random_clusterT(k=5,r=(30/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf25<-data.frame(random_clusterT(k=5,r=(25/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf20<-data.frame(random_clusterT(k=5,r=(20/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf15<-data.frame(random_clusterT(k=5,r=(15/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf10<-data.frame(random_clusterT(k=5,r=(10/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf9<-data.frame(random_clusterT(k=5,r=(9/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf8<-data.frame(random_clusterT(k=5,r=(8/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf7<-data.frame(random_clusterT(k=5,r=(7/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf6<-data.frame(random_clusterT(k=5,r=(6/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf5<-data.frame(random_clusterT(k=5,r=(5/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf4<-data.frame(random_clusterT(k=5,r=(4/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf3<-data.frame(random_clusterT(k=5,r=(3/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf2<-data.frame(random_clusterT(k=5,r=(2/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf1<-data.frame(random_clusterT(k=5,r=(1/65),mu=10000,fecal_prev=0.1))[1:n,]
+dim(sampledf)
+dim(sampledf40)
+dim(sampledf35)
+dim(sampledf30)
+dim(sampledf25)
+dim(sampledf20)
+dim(sampledf15)
+dim(sampledf10)
+dim(sampledf9)
+dim(sampledf8)
+dim(sampledf7)
+dim(sampledf6)
+dim(sampledf5)
+dim(sampledf4)
+dim(sampledf3)
+dim(sampledf2)
+dim(sampledf1)
+n=1
+k40<-sims4(nruns,sampledf40[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,i1area,darea,dlength,i1length)#
+save(k40,file="/Users/solson/Rprojects/recce1/gd7/k40.Rdata")#
+print(paste("GD",n/poopconversion,"k40","completed",sep=" "))#
+#
+k35<-sims4(nruns,sampledf35[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,i1area,darea,dlength,i1length)#
+save(k35,file="/Users/solson/Rprojects/recce1/gd7/k35.Rdata")#
+print(paste("GD",n/poopconversion,"k35","completed",sep=" "))#
+#
+k30<-sims4(nruns,sampledf30[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,i1area,darea,dlength,i1length)#
+save(k30,file="/Users/solson/Rprojects/recce1/gd7/k30.Rdata")#
+print(paste("GD",n/poopconversion,"k30","completed",sep=" "))#
+#
+k25<-sims4(nruns,sampledf25[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,i1area,darea,dlength,i1length)#
+save(k25,file="/Users/solson/Rprojects/recce1/gd7/k25.Rdata")#
+print(paste("GD",n/poopconversion,"k25","completed",sep=" "))#
+#
+k20<-sims4(nruns,sampledf20[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,i1area,darea,dlength,i1length)#
+save(k20,file="/Users/solson/Rprojects/recce1/gd7/k20.Rdata")#
+print(paste("GD",n/poopconversion,"k20","completed",sep=" "))#
+#
+k15<-sims4(nruns,sampledf15[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,i1area,darea,dlength,i1length)#
+save(k15,file="/Users/solson/Rprojects/recce1/gd7/k15.Rdata")#
+print(paste("GD",n/poopconversion,"k15","completed",sep=" "))#
+#
+k10<-sims4(nruns,sampledf10[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,i1area,darea,dlength,i1length)#
+save(k10,file="/Users/solson/Rprojects/recce1/gd7/k10.Rdata")#
+print(paste("GD",n/poopconversion,"k10","completed",sep=" "))#
+#
+k9<-sims4(nruns,sampledf9[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,i1area,darea,dlength,i1length)#
+save(k9,file="/Users/solson/Rprojects/recce1/gd7/k9.Rdata")#
+print(paste("GD",n/poopconversion,"k9","completed",sep=" "))#
+#
+k8<-sims4(nruns,sampledf8[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,i1area,darea,dlength,i1length)#
+save(k8,file="/Users/solson/Rprojects/recce1/gd7/k8.Rdata")#
+print(paste("GD",n/poopconversion,"k8","completed",sep=" "))#
+#
+k7<-sims4(nruns,sampledf7[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,i1area,darea,dlength,i1length)#
+save(k7,file="/Users/solson/Rprojects/recce1/gd7/k7.Rdata")#
+print(paste("GD",n/poopconversion,"k7","completed",sep=" "))#
+#
+k6<-sims4(nruns,sampledf6[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,i1area,darea,dlength,i1length)#
+save(k6,file="/Users/solson/Rprojects/recce1/gd7/k6.Rdata")#
+print(paste("GD",n/poopconversion,"k6","completed",sep=" "))#
+#
+k5<-sims4(nruns,sampledf5[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,i1area,darea,dlength,i1length)#
+save(k5,file="/Users/solson/Rprojects/recce1/gd7/k5.Rdata")#
+print(paste("GD",n/poopconversion,"k5","completed",sep=" "))#
+#
+k4<-sims4(nruns,sampledf4[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,i1area,darea,dlength,i1length)#
+save(k4,file="/Users/solson/Rprojects/recce1/gd7/k4.Rdata")#
+print(paste("GD",n/poopconversion,"k4","completed",sep=" "))#
+#
+k3<-sims4(nruns,sampledf3[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,i1area,darea,dlength,i1length)#
+save(k3,file="/Users/solson/Rprojects/recce1/gd7/k3.Rdata")#
+print(paste("GD",n/poopconversion,"k3","completed",sep=" "))#
+#
+k2<-sims4(nruns,sampledf2[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,i1area,darea,dlength,i1length)#
+save(k2,file="/Users/solson/Rprojects/recce1/gd7/k2.Rdata")#
+print(paste("GD",n/poopconversion,"k2","completed",sep=" "))#
+#
+k1<-sims4(nruns,sampledf1[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,i1area,darea,dlength,i1length)#
+save(k1,file="/Users/solson/Rprojects/recce1/gd7/k1.Rdata")#
+print(paste("GD",n/poopconversion,"k1","completed",sep=" "))
+v=16.25
+V=16.25
+k40<-sims4(nruns,sampledf40[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,i1area,darea,dlength,i1length)#
+save(k40,file="/Users/solson/Rprojects/recce1/gd7/k40.Rdata")#
+print(paste("GD",n/poopconversion,"k40","completed",sep=" "))
+n=7*poopconversion
+k40<-sims4(nruns,sampledf40[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,i1area,darea,dlength,i1length)#
+save(k40,file="/Users/solson/Rprojects/recce1/gd7/k40.Rdata")#
+print(paste("GD",n/poopconversion,"k40","completed",sep=" "))
+n
+k40[[15]]
+n
+summary(sampledf40)
+dim(sampledf40)
+sampledf40[1:n,]
+k40<-sims4(nruns,sampledf40[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,i1area,darea,dlength,i1length)
+sampledf<-sampledf40
+    rsimIXR<-matrix(nrow=nruns,ncol=11)#
+    rsimIXT<-matrix(nrow=nruns,ncol=11)#
+    rsimD<-matrix(nrow=nruns,ncol=11)#
+    rsimM<-matrix(nrow=nruns,ncol=11)#
+    colnames(rsimIXR) <- colnames(rsimIXT) <- colnames(rsimD) <-#
+        colnames(rsimM) <-         c("run","samples","edays","egord","xseed","yseed","degord","nobjects","length","area","method")#
+    initR<-list() #starting lists#
+    initT <- list()#
+    initD <- list()#
+    initM <- list()#
+    mapIR <- list() #capture spatial location of ironX/transects#
+    mapIT <- list()#
+    mapD <- list()#
+    mapM <- list ()#
+    sampIR <- list () # capture samples#
+    sampIT <- list ()#
+    sampD <- list ()#
+    sampM <- list ()#
+    plotM <- list ()#
+    initR[[1]] <- initT[[1]] <- initD[[1]] <- initM[[1]] <- sampledf #samples#
+    initR[[2]] <- initT[[2]] <- ironX0  #input pattern df#
+    initR[[3]] <- initT[[3]] <- nironXs  #count of ironXs on the landscape#
+    initR[[4]] <- initT[[4]] <- w  #half width of sine walk on ironX
+   for (i in 1:nruns){#
+##################### 110.61 km x 1 RANDOM IronX#
+        rsimIXR[i,1] <- i#
+        ir1  <- simIXRstokes(initR)#
+        rsimIXR [i,2] <- nrow(ir1[[8]]) + nrow(ir1[[10]]) ##isamples#
+        rsimIXR [i,3] <- i1length * .25 ##iedays#
+        rsimIXR [i,4] <- (rsimIXR[i,2]/5)/i1area   ##iegord#
+        rsimIXR [i,5] <- ir1[[1]]  # ironX center point x seed(s)#
+        rsimIXR [i,6] <- ir1[[2]]  # ironX center point y seed(s)#
+        rsimIXR [i,7] <- (nrow(sampledf)*(1/5)*(1/65^2)) # real#
+                                        # density#
+        rsimIXR [i,8] <- nironXs#
+        rsimIXR [i,9] <- i1length#
+        rsimIXR [i,10] <-  i1area#
+        rsimIXR [i,11] <- 1 ##rsimIXR#
+        mapIR   [[i]] <- ir1[[3]]#
+        sampIR  [[i]] <- rbind(ir1[[8]],ir1[[10]])#
+        ##        print(paste("IronXR_",i,sep=""))#
+##################### 110.61 km x 1 TARGETED IronX,#
+        rsimIXT [i,1] <- i#
+        it1  <- simIXTstokes(initT)#
+        rsimIXT [i,2] <- nrow(it1[[8]]) + nrow(it1[[10]]) ##isamples#
+        rsimIXT [i,3] <- i1length * .25 ##iedays#
+        rsimIXT [i,4] <- (rsimIXT[i,2]/5)/i1area   ##iegord#
+        rsimIXT [i,5] <- it1[[1]]  # ironX center point x seed(s)#
+        rsimIXT [i,6] <- it1[[2]]  # ironX center point y seed(s)#
+        rsimIXT [i,7] <- (nrow(sampledf)*(1/5)*(1/65^2)) # real#
+                                        # density#
+        rsimIXT [i,8] <- nironXs#
+        rsimIXT [i,9] <- i1length#
+        rsimIXT [i,10] <-  i1area#
+        rsimIXT [i,11] <- 2 ##rsimIXT#
+        mapIT   [[i]] <-  it1[[3]]#
+        sampIT  [[i]] <-  rbind(it1[[8]],it1[[10]])#
+        ##        print(paste("IronXT_",i,sep=""))#
+##################### 2km x 16 DISTANCE transects ala Stokes 2010#
+        rsimD [i,1] <- i#
+        xseed<-sample(seq(0,9,0.001),1)  #set random start for transects#
+        study.area=owin(xrange=c(xseed,xseed+2),yrange=c(0,65)) #one vertical set of transects#
+        initD[[2]]<- create.lines(study.area,nlines=4,width=.002,spacing=100,angle=180)#
+        dr1 <-distancesim(initD)#
+        rsimD [i,2] <- nrow(dr1[[10]])#
+        rsimD [i,3] <- dlength*(4/3) ## estimated number of days to#
+        ## sample#
+        rsimD [i,4] <- (rsimD[i,2]/5)/darea#
+        rsimD [i,5] <- xseed # seed X for transects initD[[2]][1,2]#
+        rsimD [i,6] <- initD[[2]][1,4]  # seed y for transects#
+        rsimD [i,7] <-  (nrow(sampledf)*(1/5)*(1/65^2)) # real#
+                                        # density#
+        rsimD [i,8] <- ntransects#
+        rsimD [i,9] <- dlength#
+        rsimD [i,10] <- darea#
+        rsimD [i,11] <- 3 ##rsimD#
+        mapD  [[i]] <- dr1[[4]]#
+        sampD [[i]] <- dr1[[10]]#
+        ##        print(paste("Distance_",i,sep=""))#
+##################### 2km x 16 DISTANCE transects PLUS RECCES!!!#
+        rsimM [i,1] <- i#
+        xseed<-sample(seq(0,9,0.001),1)  #set random start for transects#
+        study.area=owin(xrange=c(xseed,xseed+2),yrange=c(0,65)) #one vertical set of transects#
+        initM [[2]]<- create.lines(study.area,nlines=4,width=.002,spacing=100,angle=180)#
+        mr1 <-mixsim(initM)#
+        lss<-mr1[[4]]#
+        V=lss$lines$end[2,2]-lss$lines$end[1,2]#
+        fV=4 #frequency of random walk sine curve#
+        AV=0.25 #amplitude of random walk in km#
+        ypV<-function(x) AV*sin(x*fV*pi/V) + w#
+        ymV<-function(x) AV*sin(x*fV*pi/V) - w#
+        yVprime2<-function (x) sqrt(1+(AV*(fV*pi/V)*cos(x*fV*pi/V))^2)#
+        curvelength<-12*(integrate(y14prime2,0,14))[[1]]+3*(integrate(yVprime2,0,V))[[1]]#
+        hcurvearea<-integrate(yp14,0,14)[[1]] - integrate (ym14,0,14)[[1]] ##area between#
+        vcurvearea<-integrate(ypV,0,V)[[1]] - integrate (ymV,0,V)[[1]] #area between V#
+        rsimM [i,2] <- nrow(mr1[[10]])#
+        rsimM [i,3] <- dlength*(4/3)+curvelength*.25 ## estimated number of days to#
+        ## sample#
+        rsimM [i,4] <- (rsimM[i,2]/5)/(darea+hcurvearea+vcurvearea)#
+        ##estimated density#
+        rsimM [i,5] <- xseed # seed X for transects initD[[2]][1,2]#
+        rsimM [i,6] <- initM[[2]][1,4]  # seed y for transects#
+        rsimM [i,7] <- (nrow(sampledf)*(1/5)*(1/65^2)) # real#
+                                        # density#
+        rsimM [i,8] <- ntransects#
+        rsimM [i,9] <- dlength + curvelength#
+        rsimM [i,10] <- darea+12*hcurvearea+3*vcurvearea#
+        rsimM [i,11] <- 4  ##rsimM#
+        mapM  [[i]] <- mr1[[4]]#
+        plotM [[i]] <- mr1[[6]]   ###
+        sampM [[i]] <- mr1[[10]]  ###
+        ##        print(paste("Mixed_",i,sep=""))#
+    }#
+    over<-rbind(rsimIXR,rsimIXT,rsimD,rsimM)#
+    out<-list(sampledf,rsimIXR,mapIR,sampIR,rsimIXT,mapIT,sampIT,rsimD,mapD,sampD,rsimM,mapM,sampM,plotM,over)#
+    return (out)
+i=1
+        rsimIXR[i,1] <- i#
+        ir1  <- simIXRstokes(initR)#
+        rsimIXR [i,2] <- nrow(ir1[[8]]) + nrow(ir1[[10]]) ##isamples#
+        rsimIXR [i,3] <- i1length * .25 ##iedays#
+        rsimIXR [i,4] <- (rsimIXR[i,2]/5)/i1area   ##iegord#
+        rsimIXR [i,5] <- ir1[[1]]  # ironX center point x seed(s)#
+        rsimIXR [i,6] <- ir1[[2]]  # ironX center point y seed(s)#
+        rsimIXR [i,7] <- (nrow(sampledf)*(1/5)*(1/65^2)) # real#
+                                        # density#
+        rsimIXR [i,8] <- nironXs#
+        rsimIXR [i,9] <- i1length#
+        rsimIXR [i,10] <-  i1area#
+        rsimIXR [i,11] <- 1 ##rsimIXR#
+        mapIR   [[i]] <- ir1[[3]]#
+        sampIR  [[i]] <- rbind(ir1[[8]],ir1[[10]])
+inputs<-initR
+str(inputs)
+    nsegs = 8#
+    xvals<-sample(seq(10,55,by=0.01),inputs[[3]]) #x center points of IronXs#
+    yvals<-sample(seq(10,55,by=0.01),inputs[[3]])    #y center points of ironY#
+    angles<-c(-pi/4,-pi/2,-3*pi/4,0,25*pi/180,-65*pi/180,25*pi/180,-65*pi/180)#
+    ##angles of line segments to horizontal#
+    patterndf<-data.frame(move_ironXs(inputs[[2]],xvals,yvals,nsegs,angles))#
+    ##dataframe of x1y1 and x2y2 line segments#
+    distdf<-data.frame(pointdistanceALL(patterndf,inputs[[1]],nsegs=8))  #measure  distances d#
+    alldf<-merge(distdf,patterndf,by=c("fignumber","segnumber"))#
+    origindf<-rotmove(alldf)#
+    insidepts10<-origindf[origindf$segnumber<5 &#
+    abs(origindf$x.prime)<10.001,]
+    n = nrow(sampledf)#
+    dmin<-matrix(NA,nrow=n,ncol=7)#
+    ans<-matrix(NA,nrow=n,ncol=nrow(patterndf))
+n
+    for (j in 1:n)#
+    {#
+        px<- sampledf[[2]][j]#
+        py<- sampledf[[3]][j]#
+        pf<- sampledf[[4]][j]#
+        fecal_prev<- sampledf[[5]][j]#
+        x1<-patterndf[[1]]#
+        y1<-patterndf[[2]]#
+        x2<-patterndf[[3]]#
+        y2<-patterndf[[4]]#
+        lineMagnitude <- function(x1, y1, x2, y2) sqrt((x2 - x1)^2+(y2#
+                                                                    - y1)^2)#
+        lineMag <- lineMagnitude(x1, y1, x2, y2) # of figure#
+        u<- (((px - x1) * (x2 - x1)) + ((py - y1) * (y2 - y1))) /#
+            (lineMag * lineMag) ## slope of the shortest line between#
+        ## the point and the figure line#
+        for (i in 1: nrow(patterndf)) {#
+            ix <- iy <- vector()   # intersecting point#
+            if((u[i] < 0.00001) | (u[i] > 1))#
+            {    ## closest point does not fall within the line segment,#
+                ix [i]<- lineMagnitude(px, py, x1[i], y1[i])#
+                iy [i] <- lineMagnitude(px, py, x2[i], y2[i])#
+                if(ix[i]  > iy[i])#
+                {ans[j,i] <- iy[i]}  else  {ans[j,i] <- ix[i]}#
+            } else      ## Intersecting point is on the line, use the formula#
+        {#
+            ix[i]  <- x1[i] + u [i] * (x2[i] - x1[i])#
+            iy[i]  <- y1[i] + u [i] * (y2[i] - y1[i])#
+            ans[j,i] <- lineMagnitude(px, py, ix[i], iy[i])#
+        }#
+            dmin[j,1] <-min(ans[j,])#
+            dmin[j,2]<-which((ans[j,])==min(ans[j,]))[1]  #which row#
+                                        #in patterndf  is#
+                                        #closest#
+            dmin[j,3]<-ceiling(which((ans[j,])==min(ans[j,]))[1]/nsegs)#
+            dmin[j,4]<-px#
+            dmin[j,5]<-py#
+            dmin[j,6] <- pf#
+            dmin[j,7] <-fecal_prev#
+        }
+}
+i=1
+j=1
+    px<- sampledf[[2]][j]#
+        py<- sampledf[[3]][j]#
+        pf<- sampledf[[4]][j]#
+        fecal_prev<- sampledf[[5]][j]#
+        x1<-patterndf[[1]]#
+        y1<-patterndf[[2]]#
+        x2<-patterndf[[3]]#
+        y2<-patterndf[[4]]#
+        lineMagnitude <- function(x1, y1, x2, y2) sqrt((x2 - x1)^2+(y2#
+                                                                    - y1)^2)#
+        lineMag <- lineMagnitude(x1, y1, x2, y2) # of figure
+        u<- (((px - x1) * (x2 - x1)) + ((py - y1) * (y2 - y1))) /#
+            (lineMag * lineMag) ## slope of the shortest line between
+        for (i in 1: nrow(patterndf)) {#
+            ix <- iy <- vector()   # intersecting point#
+            if((u[i] < 0.00001) | (u[i] > 1))#
+            {    ## closest point does not fall within the line segment,#
+                ix [i]<- lineMagnitude(px, py, x1[i], y1[i])#
+                iy [i] <- lineMagnitude(px, py, x2[i], y2[i])#
+                if(ix[i]  > iy[i])#
+                {ans[j,i] <- iy[i]}  else  {ans[j,i] <- ix[i]}#
+            } else      ## Intersecting point is on the line, use the formula#
+        {#
+            ix[i]  <- x1[i] + u [i] * (x2[i] - x1[i])#
+            iy[i]  <- y1[i] + u [i] * (y2[i] - y1[i])#
+            ans[j,i] <- lineMagnitude(px, py, ix[i], iy[i])#
+        }
+}
+        for (i in 1: nrow(patterndf)) {#
+            ix <- iy <- vector()   # intersecting point#
+            if((u[i] < 0.00001) | (u[i] > 1))#
+            {    ## closest point does not fall within the line segment,#
+                ix [i]<- lineMagnitude(px, py, x1[i], y1[i])#
+                iy [i] <- lineMagnitude(px, py, x2[i], y2[i])#
+                if(ix[i]  > iy[i])#
+                {ans[j,i] <- iy[i]}  else  {ans[j,i] <- ix[i]}#
+            } else      ## Intersecting point is on the line, use the formula#
+        {#
+            ix[i]  <- x1[i] + u [i] * (x2[i] - x1[i])#
+            iy[i]  <- y1[i] + u [i] * (y2[i] - y1[i])#
+            ans[j,i] <- lineMagnitude(px, py, ix[i], iy[i])#
+        }#
+            dmin[j,1] <-min(ans[j,])#
+            dmin[j,2]<-which((ans[j,])==min(ans[j,]))[1]  #which row#
+                                        #in patterndf  is#
+                                        #closest#
+            dmin[j,3]<-ceiling(which((ans[j,])==min(ans[j,]))[1]/nsegs)#
+            dmin[j,4]<-px#
+            dmin[j,5]<-py#
+            dmin[j,6] <- pf#
+            dmin[j,7] <-fecal_prev#
+        }
+   seg <-rep(1:nsegs,nrow(patterndf)/nsegs)[dmin[,2]]
+seg
+   sampleid<-c(1:n)
+    out<-cbind(dmin,seg,sampleid)
+summary(out)
+    colnames(out)<-c("d","patterndfrow","fignumber","px","py","pf","fecal_prev","segnumber","sampleid")#
+    out
+summary(out)
+pointdistanceALL<-function (patterndf,sampledf,nsegs=8) #shortest distance from point to each#
+                                        #line segment, nsegs is number#
+                                        #of line segments in each figure#
+{#
+    n = nrow(sampledf)#
+    dmin<-matrix(NA,nrow=n,ncol=7)#
+    ans<-matrix(NA,nrow=n,ncol=nrow(patterndf))#
+    for (j in 1:n)#
+    {#
+        px<- sampledf[[2]][j]#
+        py<- sampledf[[3]][j]#
+        pf<- sampledf[[4]][j]#
+        fecal_prev<- sampledf[[5]][j]#
+        x1<-patterndf[[1]]#
+        y1<-patterndf[[2]]#
+        x2<-patterndf[[3]]#
+        y2<-patterndf[[4]]#
+        lineMagnitude <- function(x1, y1, x2, y2) sqrt((x2 - x1)^2+(y2 - y1)^2)#
+        lineMag <- lineMagnitude(x1, y1, x2, y2) # of figure#
+        u<- (((px - x1) * (x2 - x1)) + ((py - y1) * (y2 - y1))) /#
+            (lineMag * lineMag) ## slope of the shortest line between#
+        ## the point and the figure line#
+        for (i in 1: nrow(patterndf)) {#
+            ix <- iy <- vector()   # intersecting point#
+            if((u[i] < 0.00001) | (u[i] > 1))#
+            {    ## closest point does not fall within the line segment,#
+                ix [i]<- lineMagnitude(px, py, x1[i], y1[i])#
+                iy [i] <- lineMagnitude(px, py, x2[i], y2[i])#
+                if(ix[i]  > iy[i])#
+                {ans[j,i] <- iy[i]}  else  {ans[j,i] <- ix[i]}#
+            } else      ## Intersecting point is on the line, use the formula#
+        {#
+            ix[i]  <- x1[i] + u [i] * (x2[i] - x1[i])#
+            iy[i]  <- y1[i] + u [i] * (y2[i] - y1[i])#
+            ans[j,i] <- lineMagnitude(px, py, ix[i], iy[i])#
+        }#
+            dmin[j,1] <-min(ans[j,])#
+            dmin[j,2]<-which((ans[j,])==min(ans[j,]))[1]  #which row#
+                                        #in patterndf  is#
+                                        #closest#
+            dmin[j,3]<-ceiling(which((ans[j,])==min(ans[j,]))[1]/nsegs)#
+            dmin[j,4]<-px#
+            dmin[j,5]<-py#
+            dmin[j,6] <- pf#
+            dmin[j,7] <-fecal_prev#
+        }#
+    }#
+    seg <-rep(1:nsegs,nrow(patterndf)/nsegs)[dmin[,2]]#
+    sampleid<-c(1:n)#
+    out<-cbind(dmin,seg,sampleid)#
+                                        #print(ans)#
+    colnames(out)<-c("d","patterndfrow","fignumber","px","py","pf","fecal_prev","segnumber","sampleid")#
+    out#
+}
+k40<-sims4(nruns,sampledf40[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,i1area,darea,dlength,i1length)
+str(sampledf40)
+       ir1  <- simIXRstokes(initR)
+str(initR)
+summary(initT)
+    initR[[1]] <- initT[[1]] <- initD[[1]] <- initM[[1]] <- sampledf40 #sa
+i=1
+        rsimIXT [i,1] <- i#
+        it1  <- simIXTstokes(initT)
+        rsimD [i,1] <- i#
+        xseed<-sample(seq(0,9,0.001),1)  #set random start for transects#
+        study.area=owin(xrange=c(xseed,xseed+2),yrange=c(0,65)) #one vertical set of transects#
+        initD[[2]]<- create.lines(study.area,nlines=4,width=.002,spacing=100,angle=180)#
+        dr1 <-distancesim(initD)
+        rsimM [i,1] <- i#
+        xseed<-sample(seq(0,9,0.001),1)  #set random start for transects#
+        study.area=owin(xrange=c(xseed,xseed+2),yrange=c(0,65)) #one vertical set of transects#
+        initM [[2]]<- create.lines(study.area,nlines=4,width=.002,spacing=100,angle=180)#
+        mr1 <-mixsim(initM)
+str(initR[[1]])
+k100<-sims4(nruns,sampledf[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,i1area,darea,dlength,i1length)#
+save(k100,file="/Users/solson/Rprojects/recce1/gd7/k100.Rdata")#
+print(paste("GD",n/poopconversion,"k100","completed",sep=" "))
+        rsimIXR[i,1] <- i
+        ir1  <- simIXRstokes(initR)
+inputs<-initR
+    nsegs = 8#
+    xvals<-sample(seq(10,55,by=0.01),inputs[[3]]) #x center points of IronXs#
+    yvals<-sample(seq(10,55,by=0.01),inputs[[3]])    #y center points of ironY#
+    angles<-c(-pi/4,-pi/2,-3*pi/4,0,25*pi/180,-65*pi/180,25*pi/180,-65*pi/180)#
+    ##angles of line segments to horizontal#
+    patterndf<-data.frame(move_ironXs(inputs[[2]],xvals,yvals,nsegs,angles))#
+    ##dataframe of x1y1 and x2y2 line segments#
+    distdf<-data.frame(pointdistanceALL(patterndf,inputs[[1]],nsegs=8))  #measure  distances d#
+    alldf<-merge(distdf,patterndf,by=c("fignumber","segnumber"))#
+    origindf<-rotmove(alldf)#
+    insidepts10<-origindf[origindf$segnumber<5 &#
+    abs(origindf$x.prime)<10.001,]
+    dmin<-matrix(NA,nrow=n,ncol=7)#
+    ans<-matrix(NA,nrow=n,ncol=nrow(patterndf))
+n
+sampledf[[2]][1]
+patterndf
+        x1<-patterndf[[1]]
+x1
+       px<- sampledf[[2]][j]#
+        py<- sampledf[[3]][j]#
+        pf<- sampledf[[4]][j]#
+        fecal_prev<- sampledf[[5]][j]#
+        x1<-patterndf[[1]]#
+        y1<-patterndf[[2]]#
+        x2<-patterndf[[3]]#
+        y2<-patterndf[[4]]
+        lineMagnitude <- function(x1, y1, x2, y2) sqrt((x2 - x1)^2+(y2 - y1)^2)#
+        lineMag <- lineMagnitude(x1, y1, x2, y2) # of figure
+lineMag
+u
+       for (i in 1: nrow(patterndf)) {#
+            ix <- iy <- vector()   # intersecting point#
+            if((u[i] < 0.00001) | (u[i] > 1))#
+            {    ## closest point does not fall within the line segment,#
+                ix [i]<- lineMagnitude(px, py, x1[i], y1[i])#
+                iy [i] <- lineMagnitude(px, py, x2[i], y2[i])#
+                if(ix[i]  > iy[i])#
+                {ans[j,i] <- iy[i]}  else  {ans[j,i] <- ix[i]}#
+            } else      ## Intersecting point is on the line, use the formula#
+        {#
+            ix[i]  <- x1[i] + u [i] * (x2[i] - x1[i])#
+            iy[i]  <- y1[i] + u [i] * (y2[i] - y1[i])#
+            ans[j,i] <- lineMagnitude(px, py, ix[i], iy[i])#
+        }#
+            dmin[j,1] <-min(ans[j,])#
+            dmin[j,2]<-which((ans[j,])==min(ans[j,]))[1]  #which row#
+                                        #in patterndf  is#
+                                        #closest#
+            dmin[j,3]<-ceiling(which((ans[j,])==min(ans[j,]))[1]/nsegs)#
+            dmin[j,4]<-px#
+            dmin[j,5]<-py#
+            dmin[j,6] <- pf#
+            dmin[j,7] <-fecal_prev#
+        }
+    seg <-rep(1:nsegs,nrow(patterndf)/nsegs)[dmin[,2]]
+    sampleid<-c(1:n)
+    out<-cbind(dmin,seg,sampleid)#
+                                        #print(ans)#
+    colnames(out)<-c("d","patterndfrow","fignumber","px","py","pf","fecal_prev","segnumber","sampleid")
+summary(out)
+n
+    for (j in 1:n)#
+    {#
+        px<- sampledf[[2]][j]#
+        py<- sampledf[[3]][j]#
+        pf<- sampledf[[4]][j]#
+        fecal_prev<- sampledf[[5]][j]#
+        x1<-patterndf[[1]]#
+        y1<-patterndf[[2]]#
+        x2<-patterndf[[3]]#
+        y2<-patterndf[[4]]#
+        lineMagnitude <- function(x1, y1, x2, y2) sqrt((x2 - x1)^2+(y2#
+                                                                    - y1)^2)#
+        lineMag <- lineMagnitude(x1, y1, x2, y2) # of figure#
+        u<- (((px - x1) * (x2 - x1)) + ((py - y1) * (y2 - y1))) /#
+            (lineMag * lineMag) ## slope of the shortest line between#
+        ## the point and the figure line#
+        for (i in 1: nrow(patterndf)) {#
+            ix <- iy <- vector()   # intersecting point#
+            if((u[i] < 0.00001) | (u[i] > 1))#
+            {    ## closest point does not fall within the line segment,#
+                ix [i]<- lineMagnitude(px, py, x1[i], y1[i])#
+                iy [i] <- lineMagnitude(px, py, x2[i], y2[i])#
+                if(ix[i]  > iy[i])#
+                {ans[j,i] <- iy[i]}  else  {ans[j,i] <- ix[i]}#
+            } else      ## Intersecting point is on the line, use the formula#
+        {#
+            ix[i]  <- x1[i] + u [i] * (x2[i] - x1[i])#
+            iy[i]  <- y1[i] + u [i] * (y2[i] - y1[i])#
+            ans[j,i] <- lineMagnitude(px, py, ix[i], iy[i])#
+        }#
+            dmin[j,1] <-min(ans[j,])#
+            dmin[j,2]<-which((ans[j,])==min(ans[j,]))[1]  #which row#
+                                        #in patterndf  is#
+                                        #closest#
+            dmin[j,3]<-ceiling(which((ans[j,])==min(ans[j,]))[1]/nsegs)#
+            dmin[j,4]<-px#
+            dmin[j,5]<-py#
+            dmin[j,6] <- pf#
+            dmin[j,7] <-fecal_prev#
+        }#
+    }
+summary(u)
+summary(lineMag)
+summary(px)
+px
+sampledf[[2]]
+j
+n
+    for (j in 1:1)#
+    {#
+        px<- sampledf[[2]][j]#
+        py<- sampledf[[3]][j]#
+        pf<- sampledf[[4]][j]#
+        fecal_prev<- sampledf[[5]][j]#
+        x1<-patterndf[[1]]#
+        y1<-patterndf[[2]]#
+        x2<-patterndf[[3]]#
+        y2<-patterndf[[4]]#
+        lineMagnitude <- function(x1, y1, x2, y2) sqrt((x2 - x1)^2+(y2#
+                                                                    - y1)^2)#
+        lineMag <- lineMagnitude(x1, y1, x2, y2) # of figure#
+        u<- (((px - x1) * (x2 - x1)) + ((py - y1) * (y2 - y1))) /#
+     }
+    for (j in 1:1)#
+    {#
+        px<- sampledf[[2]][j]#
+        py<- sampledf[[3]][j]#
+        pf<- sampledf[[4]][j]#
+        fecal_prev<- sampledf[[5]][j]#
+        x1<-patterndf[[1]]#
+        y1<-patterndf[[2]]#
+        x2<-patterndf[[3]]#
+        y2<-patterndf[[4]]#
+        lineMagnitude <- function(x1, y1, x2, y2) sqrt((x2 - x1)^2+(y2#
+                                                                    - y1)^2)#
+        lineMag <- lineMagnitude(x1, y1, x2, y2) # of figure#
+        u<- (((px - x1) * (x2 - x1)) + ((py - y1) * (y2 - y1))) /#
+            (lineMag * lineMag)}
+px
+py
+u
+px
+py
+pf
+fecal_prev
+x1
+y1
+x2
+y2
+lineMagnitude
+lineMag
+patterndf
+u[1]
+nrow(patterndf)
+      ix <- iy <- vector()   # intersecting point
+        for (i in 1: nrow(patterndf)) {(u[i] < 0.00001) | (u[i] > 1)}
+   nn<-     for (i in 1: nrow(patterndf)) {(u[i] < 0.00001) | (u[i] > 1)}
+nn
+((u[i] < 0.00001) | (u[i] > 1))
+i
+        for (i in 1: nrow(patterndf)) {#
+            ix <- iy <- vector()   # intersecting point#
+            if((u[i] < 0.00001) | (u[i] > 1))#
+            {    ## closest point does not fall within the line segment,#
+                ix [i]<- lineMagnitude(px, py, x1[i], y1[i])#
+                iy [i] <- lineMagnitude(px, py, x2[i], y2[i])#
+                if(ix[i]  > iy[i])#
+                {ans[j,i] <- iy[i]}  else  {ans[j,i] <- ix[i]}#
+            } else      ## Intersecting point is on the line, use the formula#
+        {#
+            ix[i]  <- x1[i] + u [i] * (x2[i] - x1[i])#
+            iy[i]  <- y1[i] + u [i] * (y2[i] - y1[i])#
+            ans[j,i] <- lineMagnitude(px, py, ix[i], iy[i])#
+        }#
+            dmin[j,1] <-min(ans[j,])#
+            dmin[j,2]<-which((ans[j,])==min(ans[j,]))[1]  #which row#
+                                        #in patterndf  is#
+                                        #closest#
+            dmin[j,3]<-ceiling(which((ans[j,])==min(ans[j,]))[1]/nsegs)#
+            dmin[j,4]<-px#
+            dmin[j,5]<-py#
+            dmin[j,6] <- pf#
+            dmin[j,7] <-fecal_prev#
+        }
+dmin
+pointdistanceALL<-function (patterndf,sampledf,nsegs=8) #shortest distance from point to each#
+                                        #line segment, nsegs is number#
+                                        #of line segments in each figure#
+{#
+    n = nrow(sampledf)#
+    dmin<-matrix(NA,nrow=n,ncol=7)#
+    ans<-matrix(NA,nrow=n,ncol=nrow(patterndf))#
+    for (j in 1:n)#
+    {#
+        px<- sampledf[[2]][j]#
+        py<- sampledf[[3]][j]#
+        pf<- sampledf[[4]][j]#
+        fecal_prev<- sampledf[[5]][j]#
+        x1<-patterndf[[1]]#
+        y1<-patterndf[[2]]#
+        x2<-patterndf[[3]]#
+        y2<-patterndf[[4]]#
+        lineMagnitude <- function(x1, y1, x2, y2) sqrt((x2 - x1)^2+(y2 - y1)^2)#
+        lineMag <- lineMagnitude(x1, y1, x2, y2) # of figure#
+        u<- (((px - x1) * (x2 - x1)) + ((py - y1) * (y2 - y1)))/(lineMag * lineMag) ## slope of the shortest line between#
+        ## the point and the figure line#
+        for (i in 1: nrow(patterndf)) {#
+            ix <- iy <- vector()   # intersecting point#
+            if((u[i] < 0.00001) | (u[i] > 1))#
+            {    ## closest point does not fall within the line segment,#
+                ix [i]<- lineMagnitude(px, py, x1[i], y1[i])#
+                iy [i] <- lineMagnitude(px, py, x2[i], y2[i])#
+                if(ix[i]  > iy[i])#
+                {ans[j,i] <- iy[i]}  else  {ans[j,i] <- ix[i]}#
+            } else      ## Intersecting point is on the line, use the formula#
+        {#
+            ix[i]  <- x1[i] + u [i] * (x2[i] - x1[i])#
+            iy[i]  <- y1[i] + u [i] * (y2[i] - y1[i])#
+            ans[j,i] <- lineMagnitude(px, py, ix[i], iy[i])#
+        }#
+            dmin[j,1] <-min(ans[j,])#
+            dmin[j,2]<-which((ans[j,])==min(ans[j,]))[1]  #which row#
+                                        #in patterndf  is#
+                                        #closest#
+            dmin[j,3]<-ceiling(which((ans[j,])==min(ans[j,]))[1]/nsegs)#
+            dmin[j,4]<-px#
+            dmin[j,5]<-py#
+            dmin[j,6] <- pf#
+            dmin[j,7] <-fecal_prev#
+        }#
+    }#
+    seg <-rep(1:nsegs,nrow(patterndf)/nsegs)[dmin[,2]]#
+    sampleid<-c(1:n)#
+    out<-cbind(dmin,seg,sampleid)#
+                                        #print(ans)#
+    colnames(out)<-c("d","patterndfrow","fignumber","px","py","pf","fecal_prev","segnumber","sampleid")#
+    out#
+}
+simIXRstokes<-function(inputs)#
+{#
+    nsegs = 8#
+    xvals<-sample(seq(10,55,by=0.01),inputs[[3]]) #x center points of IronXs#
+    yvals<-sample(seq(10,55,by=0.01),inputs[[3]])    #y center points of ironY#
+    angles<-c(-pi/4,-pi/2,-3*pi/4,0,25*pi/180,-65*pi/180,25*pi/180,-65*pi/180)#
+    ##angles of line segments to horizontal#
+    patterndf<-data.frame(move_ironXs(inputs[[2]],xvals,yvals,nsegs,angles))#
+    ##dataframe of x1y1 and x2y2 line segments#
+    distdf<-data.frame(pointdistanceALL(patterndf,inputs[[1]],nsegs=8))  #measure  distances d#
+    alldf<-merge(distdf,patterndf,by=c("fignumber","segnumber"))#
+    origindf<-rotmove(alldf)#
+    insidepts10<-origindf[origindf$segnumber<5 &#
+    abs(origindf$x.prime)<10.001,]#
+    #select rows that have values#
+    #that fall between the curves#
+    #x.prime needs to be less than#
+    #10.001#
+    #
+    final10<-subset(insidepts10,insidepts10[,18]>ym10(insidepts10[,17])#
+    & insidepts10[,18]<yp10(insidepts10[,17])) #select  x y points#
+    #between the 2 functions#
+    insidepts8<-origindf[origindf$segnumber>4 &#
+    abs(origindf$x.prime)<3.828334 ,]#
+    #x.prime needs to be less than#
+    #7.653669/2 +0.001#
+    final8<-subset(insidepts8,insidepts8[,18]>ym8(insidepts8[,17]) &#
+    insidepts8[,18]<yp8(insidepts8[,17]))#
+    #select xy points between the 2 functions#
+    out<-list(xvals,yvals,patterndf,distdf,alldf,origindf,insidepts10,final10,insidepts8,final8)#
+    #out<-list(patterndf,final10,final8)#
+    out#
+}
+        ir1  <- simIXRstokes(initR)
+setwd("/Users/solson/Rprojects/recce1/")#
+source("func-ironX0.r")#
+source("func-movereplicateIronX.r")#
+source("func-samplingstokes.r")#
+source("func-pointdistanceALL.r")#
+source("func-rotmove.r")#
+source("func-rotatepts.r")#
+source("func-distancesim.r")#
+source("func-simIXRstokes.r")#
+source("func-simIXTstokes.r")#
+source("func-mixsim.r")#
+source("func-sims4.r")#
+source("func-init.r")
+area=65*65  ## area of landscape#
+pilespday=5  ## piles per day per gorilla#
+piled=1 ##days#
+poopconversion=area*pilespday*piled#
+#
+## Set up runs#
+nruns=15#
+ntransects=16#
+#
+##Upper density at 7 (147875 piles)#
+n=7*poopconversion
+sampledf <-data.frame(random_basic(n,fecal_prev=0.1))#
+sampledf40<-data.frame(random_clusterT(k=5,r=(40/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf35<-data.frame(random_clusterT(k=5,r=(35/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf30<-data.frame(random_clusterT(k=5,r=(30/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf25<-data.frame(random_clusterT(k=5,r=(25/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf20<-data.frame(random_clusterT(k=5,r=(20/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf15<-data.frame(random_clusterT(k=5,r=(15/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf10<-data.frame(random_clusterT(k=5,r=(10/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf9<-data.frame(random_clusterT(k=5,r=(9/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf8<-data.frame(random_clusterT(k=5,r=(8/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf7<-data.frame(random_clusterT(k=5,r=(7/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf6<-data.frame(random_clusterT(k=5,r=(6/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf5<-data.frame(random_clusterT(k=5,r=(5/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf4<-data.frame(random_clusterT(k=5,r=(4/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf3<-data.frame(random_clusterT(k=5,r=(3/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf2<-data.frame(random_clusterT(k=5,r=(2/65),mu=10000,fecal_prev=0.1))[1:n,]#
+sampledf1<-data.frame(random_clusterT(k=5,r=(1/65),mu=10000,fecal_prev=0.1))[1:n,]
+dim(sampledf)
+dim(sampledf40)
+dim(sampledf30)
+dim(sampledf20)
+dim(sampledf10)
+dim(sampledf9)
+dim(sampledf8)
+dim(sampledf7)
+dim(sampledf6)
+dim(sampledf5)
+dim(sampledf4)
+dim(sampledf3)
+dim(sampledf2)
+dim(sampledf1)
+n=2.16*poopconversion#
+k100<-sims4(nruns,sampledf[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,ypV,ymV,yVprime2,i1area,darea,dlength,i1length)#
+save(k100,file="/Users/solson/Rprojects/recce1/simn5e4/k100.Rdata")#
+print("Woohoo 1")
+k100<-sims4(nruns,sampled[1:n,],nironXs=1,ntransects=16,ironX0,w=0.001,yp10,ym10,yp8,ym8,yp14,ym14,y14prime2,ypV,ymV,yVprime2,i1area,darea,dlength,i1length)

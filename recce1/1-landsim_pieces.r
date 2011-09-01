@@ -8,38 +8,42 @@ library(DSpat)
 ## ~ 240 x 2 km transects for 40,000 km2]166 x 2km transects for
 ## 28,000 km2 (stokes 2010)
 
-xseed<-sample(seq(0,10,0.002),1)  #set random start for transects
-study.area=owin(xrange=c(xseed,xseed+2),yrange=c(0,65)) #one vertical set of transects
-xp=create.lines(study.area,nlines=4,width=.002,spacing=100,angle=180)
-label <- c(1:4)
-col1<-cbind(label,xp[,2:3]+16,xp[,4:6])
-col2<-cbind(label,col1[,2:3]+16,xp[,4:6])
-col3<-cbind(label,col2[,2:3]+16,xp[,4:6])
-xps <- rbind(xp,col1,col2,col3) #7 verticals sets
-study.area=owin(xrange=c(0,65),yrange=c(0,65))
-ls=lines_to_strips(xps,study.area) #converted to strips
-plot(ls$lines,lty=1)
-label <- c(1:nrow(ls$lines$end))
 
 px<-c(6,6,6,6,22,22,22,22)
 py<-c(10.64892,26.89892,43.14892,59.39892,10.649,26.898,43.128,59.399)
 dsort<-matrix(nrow=length(px),ncol=3)
-dsort[,1]<-px
-dsort[,2]<-py
-dsort[,3]<-rep(999,length(px))
-for (j in 1:length(px))
-{
-    for (i in 1:16){
-        if(
-           (px[j] <= ls$transects[i][[1]]$x[1]) & (px[j] >= ls$transects[i][[1]]$x[3]) & (py[j] <= ls$transects[i][[1]]$y[1]) & (py[j] >= ls$transects[i][[1]]$y[3])
-           )
-        { dsort[i,3]<-i }
+
+distancesim<-function(input){
+    xseed<-sample(seq(0,10,0.002),1)  #set random start for transects
+    study.area=owin(xrange=c(xseed,xseed+2),yrange=c(0,65)) #one vertical set of transects
+    xp=create.lines(study.area,nlines=4,width=.002,spacing=100,angle=180)
+    label <- c(1:4)
+    col1<-cbind(label,xp[,2:3]+16,xp[,4:6])
+    col2<-cbind(label,col1[,2:3]+16,xp[,4:6])
+    col3<-cbind(label,col2[,2:3]+16,xp[,4:6])
+    xps <- rbind(xp,col1,col2,col3) #7 verticals sets
+    study.area=owin(xrange=c(0,65),yrange=c(0,65))
+    ls=lines_to_strips(xps,study.area) #converted to strips
+    plot(ls$lines,lty=1)
+    label <- c(1:nrow(ls$lines$end))
+    dsort[,1]<-px
+    dsort[,2]<-py
+    dsort[,3]<-rep(999,length(px))
+    for (j in 1:length(px))
+    {
+        for (i in 1:16){
+            if(
+               (px[j] <= ls$transects[i][[1]]$x[1]) & (px[j] >= ls$transects[i][[1]]$x[3]) & (py[j] <= ls$transects[i][[1]]$y[1]) & (py[j] >= ls$transects[i][[1]]$y[3])
+               )
+            { dsort[i,3]<-i }
+        }
     }
+    colnames(dsort)<-c("xvals","yvals","label")
+    label <- c(1:nrow(ls$lines$end))
+    linends<-data.frame(label,ls$lines$ends)
+    ptnlines<-merge(dsort,linends,by="label")
 }
-colnames(dsort)<-c("xvals","yvals","label")
-label <- c(1:nrow(ls$lines$end))
-linends<-data.frame(label,ls$lines$ends)
-ptnlines<-merge(dsort,linends,by="label")
+
 
 dist2line.sho(ptnlines)
 tester<-matrix(ncol=7,nrow=2)

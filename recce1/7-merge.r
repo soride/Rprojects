@@ -1,0 +1,63 @@
+### Analyze ironX and DISTANCE sampling
+## rm(list = ls())
+setwd("/Users/solson/Rprojects/recce1")
+load("/Users/solson/Rprojects/recce1/simn5e4/k100.RData")
+hk100<-k100
+load("/Users/solson/Rprojects/recce1/simn5e4/k20.RData")
+hk20<-k20
+load("/Users/solson/Rprojects/recce1/simn5e4/k10.RData")
+hk10<-k10
+load("/Users/solson/Rprojects/recce1/simn5e4/k5.RData")
+hk5<-k5
+load("/Users/solson/Rprojects/recce1/simn5e4/k3.RData")
+hk3<-k3
+hk<-rbind(hk100[[15]],hk20[[15]],hk10[[15]],hk5[[15]],hk3[[15]])
+kvalues<-rep(c(100,20,10,5,2.5),each=60)
+hk[,4]<-(hk[,2]/5)/hk[,10]
+bias<-hk[,4]-hk[,7]
+dev<-hk[,7]-hk[,4]
+hdf <-data.frame(cbind(hk,kvalues,bias,dev))
+rm(k100,k20,k10,k5,k3,bias,dev)
+
+
+
+load("/Users/solson/Rprojects/recce1/simn2e4/k100.RData")
+mk100<-k100
+load("/Users/solson/Rprojects/recce1/simn2e4/k20.RData")
+mk20<-k20
+load("/Users/solson/Rprojects/recce1/simn2e4/k10.RData")
+mk10<-k10
+load("/Users/solson/Rprojects/recce1/simn2e4/k5.RData")
+mk5<-k5
+load("/Users/solson/Rprojects/recce1/simn2e4/k3.RData")
+mk3<-k3
+mk<-rbind(mk100[[15]],mk20[[15]],mk10[[15]],mk5[[15]],mk3[[15]])
+mk[,4]<-(mk[,2]/5)/mk[,10]
+bias<-mk[,4]-mk[,7]
+dev<-mk[,7]-mk[,4]
+mdf <-data.frame(cbind(mk,kvalues,bias,dev))
+rm(k100,k20,k10,k5,k3,bias,dev)
+
+
+
+load("/Users/solson/Rprojects/recce1/simn1e4/k100.RData")
+lk100<-k100
+load("/Users/solson/Rprojects/recce1/simn1e4/k20.RData")
+lk20<-k20
+load("/Users/solson/Rprojects/recce1/simn1e4/k10.RData")
+lk10<-k10
+load("/Users/solson/Rprojects/recce1/simn1e4/k5.RData")
+lk5<-k5
+load("/Users/solson/Rprojects/recce1/simn1e4/k3.RData")
+lk3<-k3
+lk<-rbind(lk100[[15]],lk20[[15]],lk10[[15]],lk5[[15]],lk3[[15]])
+lk[,4]<-(lk[,2]/5)/lk[,10]
+bias<-lk[,4]-lk[,7]
+dev<-lk[,7]-lk[,4]
+ldf <-data.frame(cbind(lk,kvalues,bias,dev))
+rm(k100,k20,k10,k5,k3,bias,dev)
+
+
+
+
+

@@ -29,11 +29,9 @@ pointdistanceALL<-function (patterndf,sampledf,nsegs=8) #shortest distance from 
         y1<-patterndf[[2]]
         x2<-patterndf[[3]]
         y2<-patterndf[[4]]
-        lineMagnitude <- function(x1, y1, x2, y2) sqrt((x2 - x1)^2+(y2
-                                                                    - y1)^2)
+        lineMagnitude <- function(x1, y1, x2, y2) sqrt((x2 - x1)^2+(y2 - y1)^2)
         lineMag <- lineMagnitude(x1, y1, x2, y2) # of figure
-        u<- (((px - x1) * (x2 - x1)) + ((py - y1) * (y2 - y1))) /
-            (lineMag * lineMag) ## slope of the shortest line between
+        u<- (((px - x1) * (x2 - x1)) + ((py - y1) * (y2 - y1)))/(lineMag * lineMag) ## slope of the shortest line between
         ## the point and the figure line
         for (i in 1: nrow(patterndf)) {
             ix <- iy <- vector()   # intersecting point
